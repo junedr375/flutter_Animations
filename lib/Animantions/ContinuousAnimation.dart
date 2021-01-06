@@ -13,15 +13,22 @@ class _ContinuousAnimationState extends State<ContinuousAnimation>
   void initState() {
     super.initState();
     animationController =
-        AnimationController(duration: Duration(seconds: 6), vsync: this);
+        AnimationController(duration: Duration(milliseconds: 500), vsync: this);
 
-    animation = IntTween(begin: 3, end: 10).animate(CurvedAnimation(
-        parent: animationController, curve: Curves.fastOutSlowIn));
+    animation = IntTween(begin: 3, end: 8).animate(
+        CurvedAnimation(parent: animationController, curve: Curves.linear))
+      ..addListener(() {
+        if (animationController.isCompleted) {
+          animationController.reverse();
+        }
+      });
     animationController.forward();
+    // animationController.repeat();
   }
 
   @override
   Widget build(BuildContext context) {
+    final double size = 20.0;
     return AnimatedBuilder(
       animation: animationController,
       builder: (BuildContext context, Widget child) {
@@ -34,12 +41,12 @@ class _ContinuousAnimationState extends State<ContinuousAnimation>
                 Text('Loading...'),
                 //Text(animation.value.toString(), style: TextStyle(fontSize: 52)),
                 Container(
-                  height: 20.0 * animation.value,
-                  width: 20.0 * animation.value,
+                  height: size * animation.value,
+                  width: size * animation.value,
                   decoration: BoxDecoration(
                       color: Colors.blue,
-                      borderRadius:
-                          BorderRadius.circular((20.0 * animation.value) / 2)),
+                      borderRadius: BorderRadius.circular(
+                          (size * animation.value) / 2.0)),
                 )
               ],
             ),
