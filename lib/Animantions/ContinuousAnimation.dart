@@ -23,7 +23,7 @@ class _ContinuousAnimationState extends State<ContinuousAnimation>
         }
       });
     animationController.forward();
-    // animationController.repeat();
+    animationController.repeat();
   }
 
   @override
@@ -47,6 +47,8 @@ class _ContinuousAnimationState extends State<ContinuousAnimation>
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(
                           (size * animation.value) / 2.0)),
+                  transform: Matrix4.translationValues(
+                      size * animation.value, size * animation.value, 0.0),
                 )
               ],
             ),
