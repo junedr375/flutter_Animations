@@ -1,4 +1,5 @@
 import 'package:animation/Animantions/ContinuousAnimation.dart';
+import 'package:animation/Animantions/FlipAnimtion.dart';
 import 'package:animation/Animantions/loginPage.dart';
 import 'package:animation/Pages/productShow.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ContinuousAnimation(),
+      home: FLipAnimation(),
     );
   }
 }
