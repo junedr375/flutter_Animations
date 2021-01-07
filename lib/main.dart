@@ -1,3 +1,4 @@
+import 'package:animation/Animantions/CarAnim.dart';
 import 'package:animation/Animantions/ContinuousAnimation.dart';
 import 'package:animation/Animantions/FlipAnimtion.dart';
 import 'package:animation/Animantions/loginPage.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: FLipAnimation(),
+      home: CarANim(),
     );
   }
 }
