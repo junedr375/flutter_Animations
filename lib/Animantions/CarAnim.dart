@@ -43,10 +43,10 @@ class _CarANimState extends State<CarANim> with SingleTickerProviderStateMixin {
                     transform: Matrix4.translationValues(
                         animation.value * width, 0.0, 0.0),
                     child: Container(
-                        height: cirle_anim.value * 100,
-                        width: cirle_anim.value * 100,
+                        // height: cirle_anim.value * 100,
+                        // width: cirle_anim.value * 100,
                         decoration: BoxDecoration(
-                            color: Colors.blue[300],
+                            //     color: Colors.blue[300],
                             borderRadius: BorderRadius.circular(35)),
                         child: Center(
                             child: Icon(
