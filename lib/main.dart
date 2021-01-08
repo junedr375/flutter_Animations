@@ -4,6 +4,7 @@ import 'package:animation/Animantions/FlipAnimtion.dart';
 import 'package:animation/Animantions/loginPage.dart';
 import 'package:animation/Animantions/toggleTest.dart';
 import 'package:animation/Pages/AnimatedSwitcher.dart';
+import 'package:animation/Pages/GoogleMap.dart';
 import 'package:animation/Pages/productShow.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyToggleButton(),
+      home: MyGoogleMap(),
     );
   }
 }
