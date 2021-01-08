@@ -72,9 +72,7 @@ class _ProductShowState extends State<ProductShow>
                                 image: AssetImage('images/img.jpg'),
                                 fit: BoxFit.cover)),
                         transform: Matrix4.translationValues(
-                            width * animation.value,
-                            width * animation.value,
-                            0.0),
+                            0.0, width * animation.value, 0.0),
                       ),
                       onTap: () {
                         animationController.forward();
