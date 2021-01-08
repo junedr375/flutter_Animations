@@ -8,6 +8,7 @@ import 'package:animation/Pages/GoogleMap.dart';
 import 'package:animation/Pages/TinderLikePage.dart';
 import 'package:animation/Pages/loader.dart';
 import 'package:animation/Pages/productShow.dart';
+import 'package:animation/ballJump/ball_jump.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyLoader(),
+      home: BallJump(),
     );
   }
 }
