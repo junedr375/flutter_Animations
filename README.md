@@ -27,4 +27,7 @@ https://user-images.githubusercontent.com/49837673/103974425-c57ac100-5197-11eb-
 Animated Toggle Button:
 https://user-images.githubusercontent.com/49837673/103974457-cad80b80-5197-11eb-85ad-636ada9a412d.mp4
 
+BallsUp Animation: 
+https://user-images.githubusercontent.com/49837673/104021454-cc7bf080-51e4-11eb-861b-10141e7a403b.mp4
+
 
