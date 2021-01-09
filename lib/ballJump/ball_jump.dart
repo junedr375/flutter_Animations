@@ -11,6 +11,7 @@ class _BallJumpState extends State<BallJump>
 
   Animation ballJumpUpAnimation;
   Animation ballJumpDownAnimation;
+  Animation boxAnimation;
 
   bool isStarted = false;
 
@@ -20,14 +21,17 @@ class _BallJumpState extends State<BallJump>
   void initState() {
     super.initState();
 
-    animationController =
-        AnimationController(duration: Duration(milliseconds: 700), vsync: this);
+    animationController = AnimationController(
+        duration: Duration(milliseconds: 2000), vsync: this);
 
-    ballJumpUpAnimation = Tween<double>(begin: 0.0, end: -0.3).animate(
+    boxAnimation = Tween<double>(begin: 1.0, end: -1.0).animate(
+        CurvedAnimation(curve: Curves.linear, parent: animationController));
+
+    ballJumpUpAnimation = Tween<double>(begin: 0.0, end: -0.8).animate(
         CurvedAnimation(
             curve: Interval(0.0, 0.40, curve: Curves.ease),
             parent: animationController));
-    ballJumpDownAnimation = Tween<double>(begin: -0.3, end: 0.0).animate(
+    ballJumpDownAnimation = Tween<double>(begin: -0.8, end: 0.0).animate(
         CurvedAnimation(
             curve: Interval(0.60, 1.0, curve: Curves.linear),
             parent: animationController));
@@ -52,42 +56,228 @@ class _BallJumpState extends State<BallJump>
     return Scaffold(
       body: Stack(
         children: [
-          AnimatedPositioned(
-              curve: Curves.bounceInOut,
-              duration: Duration(seconds: 4),
-              child: Center(
-                child: Container(
-                  height: height,
-                  width: width / 4,
-                  color: Colors.black,
-                ),
-              )),
-          Positioned(
-            left: width / 2 - 40.0,
-            top: height / 2 - 100.0,
+          Center(
             child: Container(
-              height: 40,
-              width: 80,
-              child: GestureDetector(
-                onTap: () {
-                  animationController.repeat();
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.greenAccent,
-                      border: Border.all(width: 2, color: Colors.green[900]),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Center(
-                    child: Text(
-                      'JUMP',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                    ),
-                  ),
-                ),
-              ),
+              height: height,
+              width: width / 4,
+              decoration: BoxDecoration(
+                  color: Colors.black, borderRadius: BorderRadius.circular(45)),
             ),
           ),
+          AnimatedBuilder(
+              animation: animationController,
+              builder: (BuildContext context, Widget child) {
+                return Transform(
+                  transform: Matrix4.translationValues(
+                      0.0, height * boxAnimation.value, 0.0),
+                  child: Center(
+                    child: Stack(
+                      children: [
+                        Container(
+                          height: height,
+                          width: width / 4,
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(45)),
+                        ),
+                        Positioned(
+                          top: 50,
+                          left: 20,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.blue, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 120,
+                          left: 80,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.yellow, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 280,
+                          left: 35,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.yellow, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 230,
+                          left: 60,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.pink, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 330,
+                          left: 80,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.green, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 430,
+                          left: 10,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.green, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 480,
+                          left: 20,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.blue, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 410,
+                          left: 40,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.white, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 110,
+                          left: 5,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.orange, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 10,
+                          left: 1,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.yellow[900],
+                                shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 150,
+                          left: 1,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.purple[900],
+                                shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 220,
+                          left: -10,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.white30, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 320,
+                          left: -10,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.green, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 530,
+                          left: 64,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.red, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 630,
+                          left: 24,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.purple, shape: BoxShape.circle),
+                          ),
+                        ),
+                        Positioned(
+                          top: 660,
+                          left: 74,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.orange, shape: BoxShape.circle),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }),
+          Positioned(
+              left: width / 2 - 40.0,
+              top: height / 2 - 100.0,
+              child: !isStarted
+                  ? Container(
+                      height: 40,
+                      width: 80,
+                      child: GestureDetector(
+                        onTap: () {
+                          animationController.repeat();
+                          setState(() {
+                            isStarted = true;
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.greenAccent,
+                              border: Border.all(
+                                  width: 2, color: Colors.green[900]),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Center(
+                            child: Text(
+                              'JUMP',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  : Container()),
           AnimatedBuilder(
               animation: animationController,
               builder: (BuildContext context, Widget child) {
