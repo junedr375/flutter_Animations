@@ -11,18 +11,13 @@ class BurstAnim extends StatefulWidget {
 
 class _BurstAnimState extends State<BurstAnim> {
   final List<Color> colors = [
-    Color(0xffffc100),
-    Color(0xffff9a00),
-    Color(0xffff3b00),
-    Color(0xffff5c00),
-    Color(0xffff1a00),
-    Color(0xdddd2d00),
-    Color(0xcccc3b00),
-    Color(0xbbbb4a00),
+    Colors.black12,
+    Colors.greenAccent,
     Colors.blue,
     Colors.black,
     Colors.pink,
     Colors.orange,
+    Colors.yellow,
     Colors.green,
     Colors.purple,
     Colors.greenAccent,
